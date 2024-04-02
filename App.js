@@ -1,15 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
+  const [value,setValue]=useState("");
+  const [courses,setCourses]=useState([]);
+  function add(text){
+    setValue(text)
+    
+  }
+  function click(){
+    setCourses((currentCourses)=>[...currentCourses,value])
+  }
   return (
     <View style={styles.list}>
       <View style={styles.input}>
-     <TextInput placeholder='Type here...' style={styles.textInput}></TextInput>
-     <Button title='Add Course'></Button>
+     <TextInput placeholder='Type here...' style={styles.textInput} onChangeText={add}></TextInput>
+     <Button title='Add Course' onPress={click}></Button>
      </View>
      <View style={styles.lists}>
-      <Text >Lists of Courses </Text>
+      {courses.map((course,i)=>
+        <Text key={i}>{course}</Text>
+      )}
      </View>
     </View>
   );
