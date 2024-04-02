@@ -20,7 +20,7 @@ export default function App() {
      </View>
      <View style={styles.lists}>
       {courses.map((course,i)=>
-        <Text key={i}>{course}</Text>
+        <Text key={i} style={styles.listItem}>{course}</Text>
       )}
      </View>
     </View>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
     borderBottomWidth:1,
     borderBottomColor:'#cccccc',
-    paddingBottom:24,
+    paddingBottom:10,
     flex:1,
   },
   textInput:{
@@ -51,5 +51,12 @@ const styles = StyleSheet.create({
   },
   lists:{
     flex:4
+  },
+  listItem:{
+    margin:8,
+    padding:8,
+    borderRadius:10,
+    backgroundColor:'#5e0acc',
+    color:'white'
   }
 });
